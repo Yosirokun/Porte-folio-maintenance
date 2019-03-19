@@ -8,14 +8,6 @@
  * @subpackage Twenty_Seventeen
  * @since 1.0
  */
-add_action('init', 'customRSS');
-function customRSS(){
-        add_feed('portefolio', 'customRSSFunc');
-}
-
-function customRSSFunc(){
-	get_template_part('rss', 'portefolio');
-}
 
 /**
  * Twenty Seventeen only works in WordPress 4.7 or later.
@@ -646,7 +638,14 @@ function twentyseventeen_unique_id( $prefix = '' ) {
 	return $prefix . (string) ++$id_counter;
 }
 
+add_action('init', 'customRSS');
+function customRSS(){
+        add_feed('portefolio', 'customRSSFunc');
+}
 
+function customRSSFunc(){
+	get_template_part('rss', 'portefolio');
+}
 
 
 /**
